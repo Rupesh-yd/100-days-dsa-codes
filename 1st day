@@ -1,0 +1,31 @@
+#include <stdio.h>
+int main() {
+    int arr[100], size, i, pos, element;
+    printf("Enter the number of elements (max 100): ");
+    scanf("%d", &size);
+
+    printf("Enter %d elements:\n", size);
+    for (i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter the position to insert (0 to %d): ", size);
+    scanf("%d", &pos);
+
+    if (pos < 0 || pos > size) {
+        printf("Invalid position!\n");
+        return 1;
+    }
+
+    printf("Enter the element to insert: ");
+    scanf("%d", &element);
+    for (i = size; i > pos; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[pos] = element;
+    size++;
+    printf("Array after insertion:\n");
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
